@@ -2,6 +2,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import dynamic from "next/dynamic";
 import SectionSkeleton from "@/components/ui/SectionSkeleton";
 import SectionErrorBoundary from "@/components/ui/SectionErrorBoundary";
+import SectionTransition from "@/components/ui/SectionTransition";
 import {
   HERO_COPY,
   TRANSITION_COPY,
@@ -45,25 +46,33 @@ export default function Page() {
         productPlaceholderLabel={HERO_COPY.productPlaceholderLabel}
       />
 
-      <SectionErrorBoundary>
-        <TransitionSection {...TRANSITION_COPY} />
-      </SectionErrorBoundary>
+      <SectionTransition>
+        <SectionErrorBoundary>
+          <TransitionSection {...TRANSITION_COPY} />
+        </SectionErrorBoundary>
+      </SectionTransition>
 
-      <SectionErrorBoundary>
-        <FeatureTabsSection
-          heading={FEATURE_TABS_COPY.heading}
-          tabs={FEATURE_TABS}
-          activeTab={FEATURE_TABS[0]?.id ?? ""}
-        />
-      </SectionErrorBoundary>
+      <SectionTransition>
+        <SectionErrorBoundary>
+          <FeatureTabsSection
+            heading={FEATURE_TABS_COPY.heading}
+            tabs={FEATURE_TABS}
+            activeTab={FEATURE_TABS[0]?.id ?? ""}
+          />
+        </SectionErrorBoundary>
+      </SectionTransition>
 
-      <SectionErrorBoundary>
-        <NatureSection {...NATURE_COPY} />
-      </SectionErrorBoundary>
+      <SectionTransition>
+        <SectionErrorBoundary>
+          <NatureSection {...NATURE_COPY} />
+        </SectionErrorBoundary>
+      </SectionTransition>
 
-      <SectionErrorBoundary>
-        <CTASection {...CTA_COPY} />
-      </SectionErrorBoundary>
+      <SectionTransition>
+        <SectionErrorBoundary>
+          <CTASection {...CTA_COPY} />
+        </SectionErrorBoundary>
+      </SectionTransition>
     </main>
   );
 }

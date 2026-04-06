@@ -59,12 +59,15 @@ function TransitionSection({ headline, overlayText }: TransitionSectionProps) {
 
   return (
     <SectionWrapper id="transition" className="bg-neutral-950 flex items-center">
+      {/* Directional gradient for text readability + subtle depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/20 to-transparent pointer-events-none" />
       {/* SCROLL HOOK: overlay text parallax */}
-      <div ref={sectionRef} className="w-full">
-        <Container className="relative flex items-center justify-center py-24">
+      <div ref={sectionRef} className="w-full h-full">
+        <Container className="relative flex items-center justify-center h-full min-h-screen">
           <h2
             ref={headlineRef}
-            className="text-7xl md:text-8xl font-bold text-white leading-none tracking-tight select-none"
+            className="text-7xl md:text-8xl font-semibold text-white leading-none tracking-tight select-none"
           >
             {headline}
           </h2>

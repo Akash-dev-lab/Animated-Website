@@ -43,7 +43,10 @@ function FeatureTabsSection({ heading, tabs, activeTab }: FeatureTabsSectionProp
   }, [prefersReducedMotion]);
 
   return (
-    <SectionWrapper id="features" className="bg-white flex items-center">
+    <SectionWrapper id="features" className="bg-neutral-50 flex items-center">
+      {/* Layered radial gradients for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.04),transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.03),transparent_60%)] pointer-events-none" />
       <div ref={sectionRef} className="w-full">
         <Container className="grid grid-cols-1 md:grid-cols-2 gap-16 py-24">
           {/* Left — section heading */}

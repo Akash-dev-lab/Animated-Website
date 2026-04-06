@@ -75,6 +75,9 @@ function NatureSection({ imagePlaceholderLabel, overlayText }: NatureSectionProp
 
   return (
     <SectionWrapper id="nature" className="bg-neutral-900 overflow-hidden">
+      {/* Enhanced directional gradient for text readability */}
+      <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/50 pointer-events-none" />
       <div ref={sectionRef} className="absolute inset-0 w-full h-full">
         {/* MEDIA HOOK: replace with next/image or video */}
         <div

@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Premium Product",
-  description: "A premium product landing page built with Next.js App Router, TypeScript, and Tailwind CSS.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -41,8 +41,11 @@ function CTASection({ heading, subheading, buttonLabel, inputPlaceholder }: CTAS
   return (
     <SectionWrapper id="cta" className="bg-neutral-50 flex items-center">
       <div ref={sectionRef} className="w-full">
-        <Container className="flex flex-col items-center justify-center text-center gap-8 py-24">
-          <div ref={contentRef} className="flex flex-col items-center gap-8 w-full">
+        <Container className="relative flex flex-col items-center justify-center text-center gap-8 py-24">
+          {/* Centered soft glow behind content */}
+          <div className="absolute w-[600px] h-[600px] bg-black/4 blur-[140px] rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          
+          <div ref={contentRef} className="relative flex flex-col items-center gap-8 w-full z-10">
             <h2 className="text-4xl md:text-5xl font-semibold text-neutral-900 leading-tight max-w-xl">
               {heading}
             </h2>
@@ -66,7 +69,7 @@ function CTASection({ heading, subheading, buttonLabel, inputPlaceholder }: CTAS
               />
               <button
                 type="submit"
-                className="px-6 py-3 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors whitespace-nowrap"
+                className="px-6 py-3 rounded-full bg-black text-white text-sm font-medium transition-all duration-300 hover:scale-105 hover:bg-neutral-800 cursor-pointer"
               >
                 {buttonLabel}
               </button>

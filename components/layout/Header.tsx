@@ -5,7 +5,7 @@ import type { HeaderProps } from "@/lib/types";
 
 export default function Header({ navItems }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-sm border-b border-neutral-200">
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/70 backdrop-blur-lg border-b border-black/5 shadow-sm">
       {/* Logo placeholder */}
       <div className="text-sm font-semibold tracking-widest uppercase text-neutral-900">
         Premium

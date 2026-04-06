@@ -18,3 +18,92 @@
     --foreground: #ededed;
   }
 }
+
+/* Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.06; /* keep VERY subtle */
+
+  mix-blend-mode: soft-light;
+}
+
+/* Breathing Animation for Watch */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Neumorphic Watch Styles */
+.shadow-neumorphic-face {
+  box-shadow:
+    4px 4px 8px #d1d1d1,
+    -4px -4px 8px #ffffff;
+}
+
+.glass-highlight {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    transparent 60%
+  );
+  opacity: 0.4;
+}
+
+.product-circle::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.2) 40%,
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+.product-circle {
+  width: 320px;
+  height: 320px;
+  border-radius: 9999px;
+  position: relative;
+
+  /* Base */
+  background: radial-gradient(
+    circle at 50% 30%,
+    #ffffff 0%,
+    #f3f3f3 40%,
+    #e5e5e5 70%,
+    #dcdcdc 100%
+  );
+
+  /* Inner depth */
+  box-shadow:
+    inset 0 2px 6px rgba(255,255,255,0.8),
+    inset 0 -12px 30px rgba(0,0,0,0.12),
+
+    /* Outer depth */
+    0 20px 40px rgba(0,0,0,0.08),
+    0 60px 120px rgba(0,0,0,0.12);
+
+  /* Soft glow */
+  filter: drop-shadow(0 0 40px rgba(0,0,0,0.08));
+}
