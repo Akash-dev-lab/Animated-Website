@@ -111,7 +111,7 @@ export default function HeroWatchAnimation({ label }: HeroWatchAnimationProps) {
   }, [prefersReducedMotion]);
 
   return (
-    <div ref={watchRef} className="relative shrink-0 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[480px] xl:h-[480px]">
+    <div ref={watchRef} className="relative shrink-0 w-72 h-72 sm:w-80 sm:h-80 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[480px] xl:h-[480px]">
       {/* Outer glow — soft ambient light */}
       <div className="absolute inset-0 rounded-full bg-gradient-radial from-neutral-300/40 via-transparent to-transparent blur-2xl sm:blur-3xl scale-125" />
       
@@ -128,16 +128,12 @@ export default function HeroWatchAnimation({ label }: HeroWatchAnimationProps) {
           `,
         }}
       >
-        {/* Outer bezel — dotted border rotating clockwise */}
+        {/* Outer bezel — rotating clockwise */}
         <div
           ref={outerBezelRef}
           className="absolute inset-0 rounded-full"
-          style={{
-            border: "2px dotted rgba(0, 0, 0, 0.15)",
-            borderRadius: "50%",
-          }}
         >
-          {/* Hour markers on outer bezel */}
+          {/* Hour markers on outer bezel with RGB animation */}
           {[...Array(60)].map((_, i) => {
             if (i % 5 !== 0) return null;
             const angle = (i * 6 - 90) * (Math.PI / 180);
@@ -148,7 +144,7 @@ export default function HeroWatchAnimation({ label }: HeroWatchAnimationProps) {
             return (
               <div
                 key={i}
-                className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 rounded-full bg-neutral-400/60"
+                className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 rounded-full animate-rgb-border"
                 style={{
                   left: `calc(50% + ${x}%)`,
                   top: `calc(50% + ${y}%)`,
@@ -184,6 +180,29 @@ export default function HeroWatchAnimation({ label }: HeroWatchAnimationProps) {
               <div
                 key={i}
                 className="absolute w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-neutral-500/40"
+                style={{
+                  left: `calc(50% + ${x}%)`,
+                  top: `calc(50% + ${y}%)`,
+                  transform: "translate(-50%, -50%)",
+                }}
+              />
+            );
+          })}
+        </div>
+
+        {/* Decorative red stitching circle — watch mechanism detail */}
+        <div className="absolute inset-[52px] sm:inset-[58px] md:inset-[64px] lg:inset-[72px] xl:inset-[88px] rounded-full border-[3px] border-red-500/70 pointer-events-none">
+          {/* Stitching dots around the red circle */}
+          {[...Array(32)].map((_, i) => {
+            const angle = (i * (360 / 32) - 90) * (Math.PI / 180);
+            const radius = 50;
+            const x = Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+
+            return (
+              <div
+                key={i}
+                className="absolute w-[2px] h-[2px] sm:w-[3px] sm:h-[3px] rounded-full bg-red-500/60"
                 style={{
                   left: `calc(50% + ${x}%)`,
                   top: `calc(50% + ${y}%)`,

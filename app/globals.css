@@ -47,6 +47,35 @@ body::before {
   animation: breathe 4s ease-in-out infinite;
 }
 
+/* RGB Animation for Hour Markers */
+@keyframes rgbMarkers {
+  0% {
+    background-color: rgba(255, 0, 0, 0.6);
+  }
+  16.66% {
+    background-color: rgba(255, 127, 0, 0.6);
+  }
+  33.33% {
+    background-color: rgba(255, 255, 0, 0.6);
+  }
+  50% {
+    background-color: rgba(0, 255, 0, 0.6);
+  }
+  66.66% {
+    background-color: rgba(0, 127, 255, 0.6);
+  }
+  83.33% {
+    background-color: rgba(139, 0, 255, 0.6);
+  }
+  100% {
+    background-color: rgba(255, 0, 0, 0.6);
+  }
+}
+
+.animate-rgb-border {
+  animation: rgbMarkers 3s linear infinite;
+}
+
 /* Neumorphic Watch Styles */
 .shadow-neumorphic-face {
   box-shadow:
